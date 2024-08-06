@@ -10,11 +10,8 @@ import org.mockito.MockitoAnnotations;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-
-import static com.example.demospringbootredismongodb.entity.Person.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
-import static org.springframework.data.mongodb.core.aggregation.MergeOperation.builder;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
@@ -53,7 +50,9 @@ public class PersonControllerTest {
     @Test
     public void testCreatePerson() throws Exception {
         Person person = Person.builder()
-                .id("1").name("John Doe").age(30).build();
+                .id("1")
+                .name("John Doe")
+                .age(30).build();
         when(personService.createPerson(any(Person.class))).thenReturn(person);
 
         mockMvc.perform(post("/persons")

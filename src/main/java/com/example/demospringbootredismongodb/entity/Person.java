@@ -1,17 +1,17 @@
 package com.example.demospringbootredismongodb.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 
-@Builder(toBuilder = true)
-//@Document(collection = "persons")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
+@Document(collection = "persons")
 public class Person {
 
     @Id
